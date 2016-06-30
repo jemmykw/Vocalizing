@@ -122,14 +122,32 @@ public class PitchTrainingActivity extends AppCompatActivity implements MidiDriv
                             textFreq.setText(strFreq);
                             noteThres.setText(String.valueOf(cent));
                             Log.d(" CENT", String.valueOf(cent));
-                            if(cent>100 || cent <-100){
-                                imgCent.getDrawable().setColorFilter(Color.YELLOW, PorterDuff.Mode.MULTIPLY);
-                                Log.d(" Threshold", "REEEEED");
+                            if(cent >= 100){
+                                imgCent.setColorFilter(Color.RED);
+                                Log.d(" Threshold", "RED");
+                            }
+                            else if(cent<=-100) {
+                                //imgCent.getDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+                                imgCent.setColorFilter(Color.RED);
+                                Log.d(" Threshold", "RED");
+                            }
+                            else if(cent>=60) {
+                                imgCent.setColorFilter(Color.YELLOW);
+                                Log.d(" Threshold", "YELLOW");
+                            }
+
+                            else if(cent<=-60) {
+                                //imgCent.getDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+                                imgCent.setColorFilter(Color.YELLOW);
+                                Log.d(" Threshold", "YELLOW");
                             }
                             else {
-                                imgCent.getDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
-                                Log.d(" Threshold", "Yellow");
+                                //imgCent.getDrawable().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY);
+                                imgCent.setColorFilter(Color.GREEN);
+                                Log.d(" Threshold", "GREEN");
                             }
+
+
 
                         }
 
